@@ -18,6 +18,15 @@ const pool = new Pool({
 
 app.get('/', async (req, res, next) => {
     console.log ('TEST DATA : ');
+    pool.query('select *from biodata')
+        .then((tesData) => {
+            console.log(tesData);
+            res.send(tesData.rows);
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).send('Internal Server Error');
+        });
 });
 
 app.listen(port, () => {
