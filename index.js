@@ -15,3 +15,11 @@ const pool = new Pool({
     password: 'Afdjr6768',
     port: 5432,
 }); 
+
+app.get('/', async (req, res, next) => {
+    console.log ('TEST DATA : ');
+});
+
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
